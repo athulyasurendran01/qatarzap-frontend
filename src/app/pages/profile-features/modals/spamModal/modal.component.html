@@ -1,0 +1,59 @@
+<div class="modal-content work-photo-modal">
+	<div class="modal-header">
+	    <span>Report Lead</span>
+	    <button class="close" aria-label="Close" (click)="closeModal()">
+	        <span aria-hidden="true">&times;</span>
+	    </button>
+	</div>
+	<form novalidate>
+        <div class="modal-body">
+            <nb-card>
+              <nb-card-body>
+                  <!-- <div class="form-group row">
+                    <label for="inputEmail1" class="col-sm-3 col-form-label">Email</label>
+                    <div class="col-sm-9">
+                      <input type="email" class="form-control" id="inputEmail1" placeholder="Email">
+                    </div>
+                  </div> -->
+                  <div class="form-group row">
+                    <label class="col-sm-3">Select</label>
+                    <div class="col-sm-9">
+                      <div class="form-check">
+                        <label class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" name="gridRadios" checked>
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description">Option one is this and that&mdash;be sure to include why it's great</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" name="gridRadios">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description">Option two can be something else and selecting it will deselect option one</span>
+                        </label>
+                      </div>
+                      <div class="form-check disabled">
+                        <label class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" name="gridRadios">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description">Option three is disabled</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputmsg" class="col-sm-3 col-form-label">Message</label>
+                    <div class="col-sm-9">
+                      <textarea class="form-control" id="inputmsg" placeholder="Message"></textarea>
+                    </div>
+                  </div>
+              </nb-card-body>
+            </nb-card>
+        </div>
+        <div class="modal-footer">
+            <div class="col-xs-12">
+                <button type="submit" class="btn btn-primary" (click)="reportSpam()">Submit</button>
+            </div>
+        </div>        
+    </form>
+</div>

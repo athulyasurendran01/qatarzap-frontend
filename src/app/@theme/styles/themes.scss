@@ -1,0 +1,88 @@
+// @nebular theming framework
+@import '~@nebular/theme/styles/theming';
+// @nebular out of the box themes
+@import '~@nebular/theme/styles/themes';
+
+// which themes you what to enable (empty to enable all)
+$nb-enabled-themes: (default, cosmic);
+
+$nb-themes: nb-register-theme((
+  font-main: 'Roboto' sans-serif,
+  color-bg: #d9d9d9,
+  color-fg: white,
+  card-fg: #8B92A6,
+  card-fg-text: #A6ABBA,
+  card-header-info-bg: #A6ABBA,
+  layout-bg: #eff3f6,
+  layout-fg: white,
+  header-fg: white,
+  header-bg: #1A468A,
+  card-bg: white,
+  card-border-radius: 0em,
+  sidebar-bg: white,
+  menu-bg: white,
+  menu-active-bg: rgba(59, 179, 214, 0.15),
+  menu-icon-color: #A6ABBA,
+  menu-icon-active-color: #45B7D8,
+  menu-icon-font-size: 22px,
+  footer-fg: #45B7D8,
+  footer-bg: white,
+  menu-item-padding: 1.3rem,
+  user-menu-active-bg: #45B7D8,
+  user-menu-border: #A6ABBA,
+  menu-font-size:14px,
+  menu-fg:#A6ABBA,
+  menu-submenu-item-border-radius:0,
+  menu-font-weight:normal,
+  menu-active-font-weight:normal,
+  menu-active-fg:#45B7D8,
+  menu-submenu-active-border-color: #3BB3D6,
+  menu-font-family:'Roboto' sans-serif,
+), default, default);
+
+$nb-themes: nb-register-theme((
+  // app wise variables for each theme
+  sidebar-header-gap: 2rem,
+  sidebar-header-height: initial,
+  layout-content-width: 1400px,
+
+  font-main: Roboto,
+  font-secondary: Exo,
+), cosmic, cosmic);
+
+.nb-theme-default nb-card, .nb-theme-default nb-sidebar .main-container{
+    box-shadow:none !important;
+}
+.plr-0{
+    padding-left: 0;
+    padding-right: 0;
+    overflow-x: hidden;
+}
+.cstm-table-row-details{
+    width: 100%;
+}
+.selected-list .c-btn{
+      box-shadow: none !important;
+  }
+
+.toast-top-right {
+  top: 80px !important;
+  right: 0px !important;
+}
+.nb-theme-default nb-menu .menu-item a{
+    text-shadow:none;
+}
+.nb-theme-default nb-menu .menu-item a:hover, .nb-theme-default nb-menu .menu-item a.active{
+  font-weight: normal !important;
+  border-right: 2px solid #3BB3D6
+ 
+}
+.nb-theme-default nb-sidebar.compacted nb-menu .menu-item a.active::before{
+   background: none !important;
+}
+.nb-theme-default nb-menu .menu-items > .menu-item:first-child {
+    border-top: none !important;
+}
+.nb-theme-default nb-menu .menu-items > .menu-item:last-child {
+    border-bottom: none !important;
+}

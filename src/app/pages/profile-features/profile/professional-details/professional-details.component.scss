@@ -1,0 +1,132 @@
+@import '../../../../@theme/styles/themes';
+@import '~@nebular/theme/styles/global/bootstrap/buttons';
+
+@include nb-install-component() {
+  nb-card{
+    margin-bottom:0 !important;
+  }
+  nb-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .dropdown {
+      flex-basis: 30%;
+      min-width: 220px;
+    }
+  }
+
+  nb-card-body {
+    padding-bottom: 0;
+  }
+  nb-card-footer {
+    width: 100%;
+    display: inline-block;
+  }
+  #professionalForm p, .error{
+    color: red;
+  }
+  .btn-save{
+    background-color: #3BB3D5;
+    border-radius: 3px;
+    color: #FFFFFF;
+    padding: 10px 30px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-approve{
+    background-color: #F2F2F2;
+    border-radius: 3px;
+    color: #4E5361;
+    padding: 10px 30px;
+    display: inline-block;
+    margin-right: 15px;
+    border: none;
+    cursor: pointer;
+  }
+  .page-subhead{
+    font-size: 18px;
+    color: #152447;
+    margin-top: 10px;
+  }
+  .form-group label {
+    font-size: 13px;
+    color: #4E5361;
+    margin-bottom: 12px;
+  }
+  .form-group .form-control {
+    border: 1px solid #E7E9ED;
+    height: 50px;
+    border-radius: 3px;
+  }
+  .form-control {
+    color: #666666;
+    border: 1px solid #cbcbcb;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: none;
+  }
+  .form-control:focus{
+    background-color: #ffffff;
+  }
+  .form-control::placeholder { 
+    color: #A6ABBA !important;
+    opacity: 1;
+  }
+
+  .custom-select-parent {
+      position: relative;
+  }
+  .custom-select-parent .custom-select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+  }
+  .custom-select-parent::after {
+      content: "\f104";
+      position: absolute;
+      z-index: 2;
+      right: 23px;
+      height: 0;
+      width: 0;
+      pointer-events: none;
+      top: 57%;
+      font-family: "Ionicons";
+      color: #8B92A6;
+      font-size: 16px;
+  }
+  .cstm-select-inside-parent{
+    position: absolute;
+    top: 32%;
+    right: 15px;
+    width: 25%;
+  }
+  .cstm-select-inside-parent .custom-select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 100%;
+    border: 1px solid #E3E3E6;
+    height: 50px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: #F9F9F9;
+    color: #152447;
+    padding-left: 10px;
+  }
+  // .cstm-select-inside-parent::after {
+  //     content: "\f104";
+  //     position: absolute;
+  //     z-index: 2;
+  //     right: 23px;
+  //     height: 0;
+  //     width: 0;
+  //     pointer-events: none;
+  //     top: 35%;
+  //     font-family: "Ionicons";
+  //     color: #8B92A6;
+  //     font-size: 16px;
+  // }
+  
+}

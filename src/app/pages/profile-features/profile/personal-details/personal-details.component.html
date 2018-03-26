@@ -1,0 +1,164 @@
+<div>
+  <form id="personalForm" novalidate [formGroup]="personalForm" (ngSubmit)="personalForm.valid && UpdatePersonalData()" *ngIf="personal">
+    <nb-card-header>
+      <span class="page-subhead">Personal Details</span>
+    </nb-card-header>
+    <nb-card-body class="col-xs-12">
+      <div class="col-sm-10 offset-sm-1">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group" [ngClass]="{ 'has-danger': fname.invalid && (fname.dirty || fname.touched),
+              'has-success': fname.valid && (fname.dirty || fname.touched) }">
+            <label>First Name <span class="error">*</span></label>
+            <input type="text" class="form-control" formControlName="fname" [ngModel]="personal.fname" placeholder="First Name" required>
+            <div class="form-control-feedback" *ngIf="fname.errors && (fname.dirty || fname.touched)">
+              <p *ngIf="fname.errors.required">First name is required</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" formControlName="lname" [ngModel]="personal.lname" placeholder="Last Name">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group"
+               [ngClass]="{ 'has-danger': username.invalid && (username.dirty || username.touched), 'has-success': username.valid && (username.dirty || username.touched) }">
+            <label>User Name <span class="error">*</span></label>
+            <input type="text" class="form-control" formControlName="username" [ngModel]="personal.username" placeholder="User Name" required>
+            <div class="form-control-feedback" *ngIf="username.errors && (username.dirty || username.touched)">
+              <p *ngIf="username.errors.required">User name is required</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group"
+               [ngClass]="{ 'has-danger': email.invalid && (email.dirty || email.touched), 'has-success': email.valid && (email.dirty || email.touched) }">
+            <label>Email <span class="error">*</span></label>
+            <input type="email" class="form-control" formControlName="email" [ngModel]="personal.email" placeholder="Email" required>
+            <div class="form-control-feedback" *ngIf="email.errors && (email.dirty || email.touched)">
+              <p *ngIf="email.errors.required">Email is required</p>
+              <p *ngIf="email.errors.pattern">Invalid email</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group"
+               [ngClass]="{ 'has-danger': phone_number.invalid && (phone_number.dirty || phone_number.touched), 'has-success': phone_number.valid && (phone_number.dirty || phone_number.touched) }">
+            <label>Mobile Number <span class="error">*</span></label>
+            <input type="text" class="form-control" formControlName="phone_number" [ngModel]="personal.phone_number" placeholder="Mobile Number" required>
+            <div class="form-control-feedback" *ngIf="phone_number.errors && (phone_number.dirty || phone_number.touched)">
+              <p *ngIf="phone_number.errors.required">Mobile number is required</p>
+              <p *ngIf="phone_number.errors.pattern || phone_number.errors.minlength || phone_number.errors.maxlength">Invalid mobile number</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group">
+            <label>Alternative Mobile Number</label>
+            <input type="text" class="form-control" formControlName="alt_number" [ngModel]="personal.alt_number" placeholder="Alternative Mobile Number">
+            <div class="form-control-feedback" *ngIf="alt_number.errors && (alt_number.dirty || alt_number.touched)">
+              <p *ngIf="alt_number.errors.pattern || alt_number.errors.minlength || alt_number.errors.maxlength">Invalid mobile number</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group"
+               [ngClass]="{ 'has-danger': date_of_birth.invalid && (date_of_birth.dirty || date_of_birth.touched), 'has-success': date_of_birth.valid && (date_of_birth.dirty || date_of_birth.touched) }">
+            <label>Date of Birth (MM/DD/YYYY) <span class="error">*</span></label>
+            <input class="form-control" placeholder="yyyy-mm-dd" formControlName="date_of_birth" placeholder="Date of Birth" (click)="d.toggle()"
+                     name="dp" [(ngModel)]="personal.date_of_birth" ngbDatepicker #d="ngbDatepicker">
+            <!-- <div class="input-group-append">
+              <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+              </button> 
+            </div>-->
+            <div class="form-control-feedback" *ngIf="!date_of_birth.errors">
+              <p *ngIf="date_of_error">{{date_of_error}}</p>
+            </div>
+            <div class="form-control-feedback" *ngIf="date_of_birth.errors && (date_of_birth.dirty || date_of_birth.touched)">
+              <p *ngIf="date_of_birth.errors.required">Date of Birth is required</p>
+            </div>
+
+            <!-- <input type="date" class="form-control" formControlName="date_of_birth" [ngModel]="personal.date_of_birth" placeholder="Date of Birth" required>
+             -->
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group" [ngClass]="{ 'has-danger': primary_profession.invalid && (primary_profession.dirty || primary_profession.touched), 'has-success': primary_profession.valid && (primary_profession.dirty || primary_profession.touched)}">
+            <label>Primary Profession <span class="error">*</span></label>
+            <select class="form-control" formControlName="primary_profession" [ngModel]="personal.primary_profession">
+              <option value="" disabled="true">Select Primary Profession</option>
+              <option *ngFor="let profession of primary_professions"
+                      [value]="profession.gen_id">{{profession.title}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group" [ngClass]="{ 'has-danger': location.invalid && (location.dirty || location.touched), 'has-success': location.valid && (location.dirty || location.touched)}">
+            <label>Location <span class="error">*</span></label>
+            <select class="form-control" formControlName="location" [ngModel]="personal.location">
+              <option value="" disabled="true">Select Location</option>
+              <option *ngFor="let loc of locations"
+                      [value]="loc.gen_id">{{loc.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group" [ngClass]="{ 'has-danger': type_of_profession.invalid && (type_of_profession.dirty || type_of_profession.touched), 'has-success': type_of_profession.valid && (type_of_profession.dirty || type_of_profession.touched)}">
+            <label>Type of Professional <span class="error">*</span></label>
+            <select class="form-control" formControlName="type_of_profession" [ngModel]="personal.type_of_profession" 
+              (ngModelChange)="personal.type_of_profession = $event">
+              <option value="" disabled="true">Select Type of Professional</option>
+              <option *ngFor="let profession of professional"
+                      [value]="profession.gen_id">{{profession.title}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6" *ngIf="personal.type_of_profession == 'PT100002'">
+          <div class="form-group">
+            <label>Previous Employer Details</label>
+            <input type="text" class="form-control" formControlName="previous_employment_details" [ngModel]="personal.previous_employment_details"
+            placeholder="Previous Employer Details">
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6" *ngIf="personal.type_of_profession == 'PT100001'">
+          <div class="form-group">
+            <label>Name of Head Designer</label>
+            <input type="text" class="form-control" formControlName="name_of_head_designer" [ngModel]="personal.name_of_head_designer"
+            placeholder="Name of Head Designer">
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+          <file-uploader [maxSizeInKb]="110" [allowMultiple]="false" [fileType]="'image/*'" 
+          (onSelection)="fileuploaderFileChange($event)" [required]="false"></file-uploader>
+          <span><a target="_blank" href="{{personal.proof}}">{{id_proof}}</a></span>
+          <input type="hidden" formControlName="file">
+        </div>
+      </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </nb-card-body>
+    <nb-card-footer>
+      <div class="text-right">
+        <!-- <button type="submit"  class="btn-approve">Submit for Approve</button> -->
+        <button type="submit" [disabled]="!personalForm.valid" class="btn-save">Save</button>
+      </div>
+    </nb-card-footer>
+  </form>
+</div>

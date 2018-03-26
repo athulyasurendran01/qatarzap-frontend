@@ -1,0 +1,83 @@
+<div id="dashboard-page">
+  <div class="row title">
+    <h2 class="head1">Hi,</h2>
+    <h3 class="head2">Welcome to your dashboard</h3>
+</div>
+
+<div class="row pie-charts">
+  <div class="pie-chart-item-container" *ngFor = "let status of statusCard">
+    <div class="panel">
+      <div class="pie-chart-item">
+        <div class="description">
+          <div class="description-stats">{{status.status}}</div>
+          <div>{{status.description}}</div>
+        </div>
+        <i class="{{status.icon}}"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<nb-card>
+  <!-- <nb-card-header>Available Leads</nb-card-header> -->
+  <nb-card-body>
+    <div *ngIf ="leads" class="example-container col-sm-12 col-md-12 col-xl-12 col-xxxl-12 plr-0">
+      <div *ngIf ="leads.length; else emptyleads" class="row">
+          <div class="col-sm-2">Requested by</div>
+          <div class="col-sm-2">Location</div>
+          <div class="col-sm-2">Date</div>
+          <div class="col-sm-2">Budget</div>
+          <div class="col-sm-2">Number of Credits</div>
+          <div class="col-sm-1"></div>
+          <div class="col-sm-1"></div>
+      </div>
+      <br>
+      <div class="row cstm-table-row" *ngFor = "let lead of leads; let i = index">
+        <div class="col-sm-2 client-name">
+          <span [style.background-color] = lead.shcolor >{{lead.shname || 'NA'}}</span>
+          {{lead.name || 'empty'}}
+        </div>
+        <div class="col-sm-2">{{lead.location || 'empty'}}</div>
+        <div class="col-sm-2">{{lead.date || 'empty'}}</div>
+        <div class="col-sm-2 price-color">{{lead.range || 'empty'}}</div> 
+        <div class="col-sm-2">{{lead.lead_credit_point || '0'}}</div> 
+        <div class="col-sm-1 text-right">
+          <button *ngIf= "active != i" class="view-hide-btn" (click)="viewLeadDetail(lead, i)">
+            <i>view</i>
+          </button>
+          <button *ngIf ="active == i" class="view-hide-btn" (click)="closeLeadDetail(lead)">
+            <i>hide</i>
+          </button>
+        </div>
+        <div class="col-sm-1 lead-action">
+          <div class="dropdown input-group-btn" ngbDropdown>
+              <button type="button" class="btn btn-success dropdown-toggle" ngbDropdownToggle>
+                <i class="ion-more"></i>
+              </button>
+              <ul class="dropdown-menu" ngbDropdownMenu>
+                <li (click)="rejectLead(lead)" class="dropdown-item"><i class="nc-icon-outline location_flag-points-31"></i> Reject </li>
+                <!-- <li class="dropdown-item"><i class="nc-icon-outline ui-1_eye-ban-20"></i> Hide</li>
+                <li (click)="rejectLead(lead)" class="dropdown-item"><i class="nc-icon-outline ui-1_trash-simple"></i> Delete</li> -->
+              </ul>
+          </div>
+        </div>
+       <div class="row cstm-table-row-details" *ngIf = "active == i" ng-class-odd="'alt'">
+          <div class="col-md-3 col-xs-6 small" *ngFor = "let data of leadData">
+            <div class="propertys-head">
+              <label>{{data.tit}}</label>
+            </div>
+            <div class="propertys-value">
+              <label>{{data.val}}</label>
+            </div>                                 
+          </div>
+          <div class="col-md-12 footer" *ngIf="lead.purchased != 1">
+            <button type="submit" (click)="rejectLead(lead)" class="btn reject-btn">Reject</button>
+            <button type="submit" (click)="purchaseLead(lead)" class="btn purchase-btn">Purchase</button>
+          </div>
+        </div>
+    </div>
+    <ng-template #emptyleads>
+      <p>Sorry, No leads are available</p>
+    </ng-template>
+  </div>
+  </nb-card-body>
+</nb-card>

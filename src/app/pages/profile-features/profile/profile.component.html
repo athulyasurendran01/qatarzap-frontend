@@ -1,0 +1,84 @@
+  <div class="row" id="profile-page">
+        <div class="offset-lg-1 col-lg-10 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+            <span class="page-main-head ng-scope">My Profile</span>
+              <div class="list-group">
+                <li (click)="select(1)" [ngClass]="{active: isActive(1)}" class="list-group-item">
+                    <a>
+                      <i class="nc-icon-outline users_single-01"></i>Personal Details
+                    </a>
+                </li>
+                <li (click)="select(2)" [ngClass]="{active: isActive(2)}" class="list-group-item">
+                    <a>
+                      <i class="nc-icon-outline business_badge"></i>Professional Details
+                    </a>
+                </li>
+                <li (click)="select(3)" [ngClass]="{active: isActive(3)}" class="list-group-item">
+                    <a>
+                      <i class="nc-icon-outline education_hat"></i>Education & Experience
+                    </a>
+                </li>
+                <li (click)="select(4)" [ngClass]="{active: isActive(4)}" class="list-group-item">
+                    <a>
+                      <i class="nc-icon-outline media-1_image-02"></i>Work Photos
+                    </a>
+                </li>
+                <li (click)="select(5)" [ngClass]="{active: isActive(5)}" class="list-group-item">
+                    <a>
+                      <i class="nc-icon-outline location_position-user"></i>User details
+                    </a>
+                </li>
+                <li (click)="select(6)" [ngClass]="{active: isActive(6)}" class="list-group-item">
+                    <a>
+                      <i class="nc-icon-outline location_position-user"></i>Service Location
+                    </a>
+                </li>
+                <li class="list-group-item" *ngIf = "admin_approval == 0">
+                    <a (click)="submitApproval()">
+                      <i class="nc-icon-outline location_position-user"></i>Submit for approval
+                    </a>
+                </li>
+              </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+                <!-- Personal section -->
+                <div *ngIf ="activeTab == 1" class="bhoechie-tab-content">
+                    <ngx-personal-details></ngx-personal-details>
+                </div>
+                <!-- Professional section -->
+                <div *ngIf ="activeTab == 2" class="bhoechie-tab-content ">
+                    <ngx-professional-details></ngx-professional-details>
+                </div>
+                <!-- Education & Experience section -->
+                <div *ngIf ="activeTab == 3" class="bhoechie-tab-content ">
+                    <ngx-edu-exp-details></ngx-edu-exp-details>
+                </div>
+                <!-- Work photos section -->
+                <div *ngIf ="activeTab == 4" class="bhoechie-tab-content ">
+                    <ngx-work-details></ngx-work-details>
+                </div>
+                <!-- User details section -->
+                <div *ngIf ="activeTab == 5" class="bhoechie-tab-content ">
+                    <ngx-user-details></ngx-user-details>
+                </div>
+                <!-- Service Location section -->
+                <div *ngIf ="activeTab == 6" class="bhoechie-tab-content ">
+                    <ngx-service-location></ngx-service-location>
+                </div>
+                <!-- submit for approval section
+                <div *ngIf ="activeTab == 6" class="bhoechie-tab-content">
+                    <div *ngIf="approval_status == 0; else approved">
+                        <label class="approval_status"> Please fill the profile detials first</label>
+                    </div>
+                    <ng-template #approved>
+                        <div *ngIf = "admin_approval == 0">
+                            <button class="btn btn-primary" (click)="submitApproval()">Submit for Admin approval</button>
+                        </div>
+                        <label class="approval_status" *ngIf = "admin_approval == 2">
+                            Your approval request has been sent to our verification team. You will get update via SMS/Email within 24 hours.
+                        </label>
+                    </ng-template>
+                </div> -->
+            </div>
+        </div>
+  </div>

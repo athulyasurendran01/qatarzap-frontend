@@ -1,0 +1,11 @@
+<div class="btn-toolbar mb-3" role="toolbar">
+    <div class="input-group">
+        <span class="input-group-btn">
+                <label class="btn btn-primary">
+                  <span>Choose file</span>
+                    <input type="file" accept="{{fileType}}" style="display: none;" (change)="fileChange($event)" [attr.multiple] ="allowMultiple" >
+                </label>
+            </span>
+        <input type="text" id="fileUpload" class="form-control" style="display: none;" disabled="" [class.ng-invalid-right]="required && !DisplayedText"  [class.ng-valid-right]="required && DisplayedText" >
+    </div>
+</div>

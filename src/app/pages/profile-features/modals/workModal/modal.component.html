@@ -1,0 +1,88 @@
+
+	<div class="modal-content work-photo-modal">
+	    <div class="modal-header">
+	      <span>Add Work Photos</span>
+	      <button class="close" aria-label="Close" (click)="closeModal()">
+	        <span aria-hidden="true">&times;</span>
+	      </button>
+	    </div>
+	    <form novalidate [formGroup]="WorkPhotoForm" (ngSubmit)="WorkPhotoForm.valid && AddWorkPhoto()" id="WorkPhotoForm">
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="">
+                    	<div class="form-group" [ngClass]="{ 'has-danger': title.invalid && (title.dirty || title.touched),
+			              'has-success': title.valid && (title.dirty || title.touched) }">
+				            <label>Image Title <span class="error">*</span></label>
+				            <input type="text" class="form-control" formControlName="title" placeholder="Image Title" required>
+				            <div class="form-control-feedback" *ngIf="title.errors && (title.dirty || title.touched)">
+				              <p *ngIf="title.errors.required">Image title is required!</p>
+				            </div>
+				        </div>
+                    </div>
+                    <div class="">
+                    	<div class="form-group" [ngClass]="{ 'has-danger': type.invalid && (type.dirty || type.touched), 'has-success': type.valid && (type.dirty || type.touched)}">
+				            <label>Project Type <span class="error">*</span></label>
+				            <select class="form-control" formControlName="type" [(ngModel)]="searchText">
+				              <option value="">Select project type</option>
+				              <option *ngFor="let photo_type of work_photo_type"
+				                      [value]="photo_type.gen_id">{{photo_type.title}}
+				              </option>
+				            </select>
+				            <div class="form-control-feedback" *ngIf="type.errors && (type.dirty || type.touched)">
+				              <p *ngIf="type.errors.required">Project type is required!</p>
+				            </div>
+			          	</div>
+                    </div>
+                   
+                    <div class="">
+                    	<div class="form-group" [ngClass]="{ 'has-danger': tag.invalid && (tag.dirty || tag.touched), 'has-success': tag.valid && (tag.dirty || tag.touched)}">
+				            <label>Tag <span class="error">*</span></label>
+				            <select class="form-control" formControlName="tag">
+				              <option value="">Select tag</option>
+				              <option *ngFor="let photo_tag of work_photo_tags | filter : searchText"
+				                      [value]="photo_tag.gen_id">{{photo_tag.title}}
+				              </option>
+				            </select>
+				            <div class="form-control-feedback" *ngIf="tag.errors && (tag.dirty || tag.touched)">
+				              <p *ngIf="tag.errors.required">Tag is required!</p>
+				            </div>
+			          	</div>
+                    </div>
+                    <div class="">
+                    	<div class="form-group" [ngClass]="{ 'has-danger': style.invalid && (style.dirty || style.touched), 'has-success': style.valid && (style.dirty || style.touched)}">
+				            <label>Design Style <span class="error">*</span></label>
+				            <select class="form-control" formControlName="style">
+				              <option value="">Select design Style</option>
+				              <option *ngFor="let photo_style of work_photo_ds"
+				                      [value]="photo_style.gen_id">{{photo_style.title}}
+				              </option>
+				            </select>
+				            <div class="form-control-feedback" *ngIf="style.errors && (style.dirty || style.touched)">
+				              <p *ngIf="style.errors.required">Design style is required!</p>
+				            </div>
+			          	</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="upload-btn-wrapper">
+                        	<div class="upload-btn-wrapper work-img-up">
+	                            <!-- <div class="up-btn"><i class="nc-icon-outline ui-1_circle-bold-add"></i></div> -->
+	                            <h6>Add Image<span class="error">*</span></h6>
+	                            <file-uploader [maxSizeInKb]="2000" [allowMultiple]="false" [fileType]="'image/*'" 
+          						(onSelection)="fileuploaderFileChange($event)"  [required]="false"></file-uploader>
+	                            <!-- <label>Add Image</label> -->
+                        	</div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <div class="modal-footer">
+            <div class="col-xs-12">
+                <button type="submit" [disabled]="!WorkPhotoForm.valid" class="btn save-btn">Save</button>
+            </div>
+        </div>        
+    </form>
+</div>

@@ -1,0 +1,174 @@
+<div>
+  <form id="professionalForm" novalidate [formGroup]="professionalForm" (ngSubmit)="professionalForm.valid && UpdateProfessionalData()" *ngIf="professional">
+    <nb-card-header>
+      <span class="page-subhead">Professional Details</span>
+    </nb-card-header>
+    <nb-card-body>
+      <div class="col-sm-10 offset-sm-1">
+      <div class="row">
+          <div class="col-xs-12 col-sm-6">
+          <div class="form-group" [ngClass]="{ 'has-danger': bussiness_name.invalid && (bussiness_name.dirty || bussiness_name.touched),
+              'has-success': bussiness_name.valid && (bussiness_name.dirty || bussiness_name.touched) }">
+            <label>Business Name <span class="error">*</span></label>
+            <input type="text" class="form-control" formControlName="bussiness_name" [ngModel]="professional.bussiness_name" 
+              placeholder="Business Name" required>
+            <div class="form-control-feedback" *ngIf="bussiness_name.errors && (bussiness_name.dirty || bussiness_name.touched)">
+              <p *ngIf="bussiness_name.errors.required">Business name is required</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group">
+            <label>Scope of Work</label>
+            <angular2-multiselect formControlName="work_scope" [data]="scopeWorks" [(ngModel)]="selectedScops" 
+              [settings]="dropdownSettings" 
+              (onSelect)="onItemSelect($event)" 
+              (onDeSelect)="OnItemDeSelect($event)"
+              (onSelectAll)="onSelectAll($event)"
+              (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect> 
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group">
+            <label>Style of Specialization</label>
+            <angular2-multiselect formControlName="specialization" [data]="specializations" [(ngModel)]="selectedSpecialization" 
+              [settings]="dropdownSettings" 
+              (onSelect)="onItemSelect($event)" 
+              (onDeSelect)="OnItemDeSelect($event)"
+              (onSelectAll)="onSelectAll($event)"
+              (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect> 
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group">
+            <label>Type of Projects Undertaken</label>
+            <angular2-multiselect formControlName="types" [data]="projects" [(ngModel)]="selectedProjects" 
+              [settings]="dropdownSettings" 
+              (onSelect)="onItemSelect($event)" 
+              (onDeSelect)="OnItemDeSelect($event)"
+              (onSelectAll)="onSelectAll($event)"
+              (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group">
+            <label>Residential / Commercial</label>
+            <angular2-multiselect formControlName="residential" [data]="residentialArray" [(ngModel)]="selectedResidential" 
+              [settings]="dropdownSettings" 
+              (onSelect)="onItemSelect($event)" 
+              (onDeSelect)="OnItemDeSelect($event)"
+              (onSelectAll)="onSelectAll($event)"
+              (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group">
+            <label>Type of Residential Projects</label>
+            <angular2-multiselect formControlName="residentialprojects" [data]="residentprojects" [(ngModel)]="selectedResidentprojects" 
+              [settings]="dropdownSettings" 
+              (onSelect)="onItemSelect($event)" 
+              (onDeSelect)="OnItemDeSelect($event)"
+              (onSelectAll)="onSelectAll($event)"
+              (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group">
+            <label>Type of Service Provided</label>
+            <angular2-multiselect formControlName="services" [data]="servicesArray" [(ngModel)]="selectedServices" 
+              [settings]="dropdownSettings" 
+              (onSelect)="onItemSelect($event)" 
+              (onDeSelect)="OnItemDeSelect($event)"
+              (onSelectAll)="onSelectAll($event)"
+              (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group" [ngClass]="{ 'has-danger': price_architect.invalid && (price_architect.dirty || price_architect.touched),
+              'has-success': price_architect.valid && (price_architect.dirty || price_architect.touched) }">
+            <label>Architect Cost (Starting From) <span class="error">*</span></label>
+            <input type="text" class="form-control" formControlName="price_architect" [ngModel]="professional.price_architect"
+             placeholder="Architect Cost" required>
+            <div class="form-control-feedback" *ngIf="price_architect.errors && (price_architect.dirty || price_architect.touched)">
+              <p *ngIf="price_architect.errors.required">Architect cost is required</p>
+              <p *ngIf="price_architect.errors.pattern">Invalid cost</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group" [ngClass]="{ 'has-danger': consulting_price.invalid && (consulting_price.dirty || consulting_price.touched), 'has-success': consulting_price.valid && (consulting_price.dirty || consulting_price.touched)}">
+            <label>Consulting Price <span class="error">*</span></label>
+            <input type="text" class="form-control" formControlName="consulting_price" [ngModel]="professional.consulting_price"
+             placeholder="Consulting Price" required>
+            <div class="cstm-select-inside-parent">
+              <select class="custom-select" formControlName="consulting_type" [ngModel]="professional.consulting_type">
+                <option value="" disabled="true">Select Location</option>
+                <option *ngFor="let cons of consulting_types"
+                        [value]="cons.id">{{cons.title}}
+                </option>
+              </select>
+            </div>
+            <div class="form-control-feedback" *ngIf="consulting_price.errors && (consulting_price.dirty || consulting_price.touched)">
+              <p *ngIf="consulting_price.errors.required">Consulting price is required</p>
+              <p *ngIf="consulting_price.errors.pattern">Invalid price</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group" [ngClass]="{ 'has-danger': total_experience.invalid && (total_experience.dirty || total_experience.touched),
+              'has-success': total_experience.valid && (total_experience.dirty || total_experience.touched) }">
+            <label>Total Experience(In Years) <span class="error">*</span></label>
+            <input type="text" class="form-control" formControlName="total_experience" [ngModel]="professional.total_experience"
+             placeholder="Total Experience" required>
+            <div class="form-control-feedback" *ngIf="total_experience.errors && (total_experience.dirty || total_experience.touched)">
+              <p *ngIf="total_experience.errors.required">Total experience is required</p>
+              <p *ngIf="total_experience.errors.pattern">Invalid experience</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group" [ngClass]="{ 'has-danger': vastu_consulting.invalid && (vastu_consulting.dirty || vastu_consulting.touched), 'has-success': vastu_consulting.valid && (vastu_consulting.dirty || vastu_consulting.touched)}">
+            <label>Vastu Consulting <span class="error">*</span></label>
+            <select class="form-control" formControlName="vastu_consulting" [ngModel]="professional.vastu_consulting" 
+              (ngModelChange)="professional.vastu_consulting = $event">
+              <option value="1">Yes</option>
+              <option value="2">No</option>
+            </select>
+            <div class="form-control-feedback" *ngIf="vastu_consulting.errors && (vastu_consulting.dirty || vastu_consulting.touched)">
+              <p *ngIf="vastu_consulting.errors.required">Vastu consulting is required</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group" [ngClass]="{ 'has-danger': introduction.invalid && (introduction.dirty || introduction.touched),
+              'has-success': introduction.valid && (introduction.dirty || introduction.touched) }">
+            <label>Introduction <span class="error">*</span></label>
+            <input type="text" class="form-control" formControlName="introduction" [ngModel]="professional.introduction" placeholder="Introduction" required>
+            <div class="form-control-feedback" *ngIf="introduction.errors && (introduction.dirty || introduction.touched)">
+              <p *ngIf="introduction.errors.required">Introduction is required</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </nb-card-body>
+    <nb-card-footer>
+      <div class="text-right">
+        <!-- <button type="submit"  class="btn-approve">Submit for Approve</button> -->
+        <button type="submit" [disabled]="!professionalForm.valid" class="btn-save">Save</button>
+      </div>
+    </nb-card-footer>
+  </form>
+</div>

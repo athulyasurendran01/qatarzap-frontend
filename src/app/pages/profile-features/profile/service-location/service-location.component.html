@@ -1,0 +1,23 @@
+<div id="profile-page">
+	<nb-card-header>
+		<span class="page-subhead">Service Location</span>
+	</nb-card-header>
+	<nb-card-body>
+		<div class="col-sm-10 offset-sm-1">
+			<div class="row show-grid">
+				<div calss="col-md-12">
+					<div id="pac-container">
+						<input id="pac-input" type="text" class="form-control" placeholder="Enter a location">
+					</div>
+					<div id="map-container"></div>
+				</div>
+			</div>
+		</div>
+	</nb-card-body>
+	<nb-card-footer>
+      <div class="text-right">
+        <!-- <button type="submit"  class="btn-approve">Submit for Approve</button> -->
+        <button type="submit" class="btn-save" (click)="saveServiceLocation()">Save</button>
+      </div>
+	</nb-card-footer>
+</div>

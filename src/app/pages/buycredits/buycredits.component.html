@@ -1,0 +1,57 @@
+<div class="row" id="buycredits-page">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-header>
+        Buy Credit
+        <div class="pull-right right-top-btn">
+          <span class="w-credit"><i class="ion-ios-help-outline"></i>What is credit</span>
+          <button class="sn-link ng-scope add-credit-btn" (click)="AddCreditModal()" >
+            <span class="ng-binding"><i class="ion-plus-round"></i>Add Credit</span>
+          </button>
+        </div>
+      </nb-card-header>
+        <nb-card-body>
+          <div>
+            <!-- row start -->
+            <div class="row" *ngIf="basic_info">
+              <div class="col-md-4 col-lg-4 col-sm-4" *ngFor = "let basic_inf  of basic_info;">
+                <div class="panel">
+                  <div class="panel-body">
+                    <div class="description">
+                      <h5>{{basic_inf.title}}</h5>
+                      <span>{{basic_inf.description}}</span>
+                    </div>
+                    <i class="{{basic_inf.icon}}"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- row start -->
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <h2 class="s-plan-head">Select a plan</h2>
+              </div>
+            </div>
+
+            <!-- row start -->
+            <div class="row" *ngIf="plans">
+              <div class="col-md-3 col-lg-3 col-xs-12 col-sm-3" *ngFor = "let plan  of plans;">
+                <div class="panel bootstrap-panel xsmall-panel">
+                  <div *ngIf="plan.name == 'Special'" class="panel-heading">SPECIAL OFFERS</div>
+                  <div class="panel-body">
+                    <p class="plan-credit">{{plan.credit}} CREDITS</p>
+                    <p class="plan-amount">${{plan.amount}}</p>
+                    <p class="p-with-code">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                    <div class="text-center">
+                      <button class="buy-off-credit" (click)="BuyCreditModal()">Buy</button>
+                    </div>          
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+  </div>
+</div>

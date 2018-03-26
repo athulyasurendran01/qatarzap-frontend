@@ -1,0 +1,93 @@
+@import '../../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+
+@include nb-install-component() {
+  .page-main-head{
+    color: #152447;
+    font-size: 20px;
+    padding: 25px 17px;
+    display: block;
+  }
+  .list-group-item{
+    padding: 1.3rem 1.25rem;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  .list-group-item a i {
+    margin-right: 10px;
+  }
+  div.bhoechie-tab-container{
+    display: inline-flex;
+    z-index: 10;
+    background-color: #f5f8fa;
+    padding: 0 !important;
+    border-radius: 4px;
+    margin-top: 20px;
+/*    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);*/
+    background-clip: padding-box;
+    opacity: 0.97;
+    filter: alpha(opacity=97);
+  }
+  div.bhoechie-tab-menu{
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+    min-width: 230px;
+  }
+  .bhoechie-tab{
+    padding-left: 0;
+    background-color: white !important;
+  }
+  div.bhoechie-tab-menu div.list-group>a{
+    margin-bottom: 0;
+    color: #A1A8B8;
+    border: 0px;
+  }
+  div.bhoechie-tab-menu div.list-group>a .glyphicon,
+  div.bhoechie-tab-menu div.list-group>a .fa {
+    color: #5A55A3;
+  }
+  div.bhoechie-tab-menu div.list-group>a.active,
+  div.bhoechie-tab-menu div.list-group>a.active .glyphicon,
+  div.bhoechie-tab-menu div.list-group>a.active .fa{
+    color: #3BB3D6;
+    background-color: #ffffff;
+  }
+  
+  div.bhoechie-tab-content{
+    background-color: #ffffff;
+  }
+  .list-group-item{
+    border: 0;
+  }
+  .list-group-item a{
+    color: #A1A8B8;
+    font-size: 0.9rem;
+  } 
+  .list-group-item.active {
+    margin-bottom: 0;
+    border-left: 2px solid #3BB3D6;
+    background-color: #ffffff;
+    color: #3BB3D6;
+  }
+  .list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .bhoechie-tab{
+    padding:0;
+  }
+  .approval_status{
+    color: #A1A8B8;
+    font-size: 0.9rem;
+  }
+  @include media-breakpoint-down(xs) {
+    nb-tabset /deep/ul {
+      font-size: 1rem;
+      padding: 0 0.25rem;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+<ngx-header style="display: none"></ngx-header> 
+<nb-card>
+<div>
+  <nb-card-header>
+    <span class="page-subhead">User Details</span>
+  </nb-card-header>
+  <nb-card-body class="col-xs-12">
+    <div class="col-sm-10 offset-sm-1">
+     <div class="row">
+        <div class="col-md-12" >
+          <div class="cover-img-box" *ngIf="profile_pics" [style.background]="'url(' +  profile_pics.cover + ')'" >
+  <!--          <img [src]="profile_pics.cover ? profile_pics.cover : 'assets/images/5.png'">-->
+            <div class="user-profile-upload-btn-wrapper">
+              <button (click)="cropProfileImg()" class="up-btn">
+                  <!-- <i *ngIf="!profile_pics.avatar" class="nc-icon-outline users_single-01"></i> -->
+                  <img [src]="profile_pics.avatar ? profile_pics.avatar : 'assets/images/5.png'">
+                  <br>Change Profile Photo</button>
+            </div>
+            <div class="user-cover-upload-btn-wrapper" >
+              <button (click)="getDefaultCoverPics()" class="up-btn">Change Cover photo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="videos && videos.length > 0">
+        <div class="col-xs-12 col-sm-6" *ngFor="let video of videos">
+          <div class="embed-responsive embed-responsive-4by3">
+           <iframe [src]="safeURL(video.video_id)" height="0" width="0" frameborder="0"></iframe>
+          </div>
+          <div class="form-group">
+            <button type="button" (click)="deleteVideo(video.id)"  class="del-video-btn">Delete Video</button>
+          </div>
+        </div>
+      </div>
+
+      <form id="WorkVideoForm" novalidate [formGroup]="WorkVideoForm" (ngSubmit)="WorkVideoForm.valid && saveVideos()" *ngIf="!(videos && videos.length > 1)">
+        <div class="row show-grid">
+          <div class="col-md-6">
+            <div class="form-group" [ngClass]="{ 'has-danger': video_url.invalid && (video_url.dirty || video_url.touched),
+                    'has-success': video_url.valid && (video_url.dirty || video_url.touched) }">
+                  <label>Video URL<span class="error">*</span></label>
+                  <input type="text" class="form-control" formControlName="video_url" placeholder="Video URL" required>
+                  <div class="form-control-feedback" *ngIf="video_url.errors && (video_url.dirty || video_url.touched)">
+                    <p *ngIf="video_url.errors.required">Video URL is required</p>
+                  </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <button type="submit" class="add-btn color-btn">Add New</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-1"></div>
+  </nb-card-body>
+  <nb-card-footer>
+      <div class="text-right">
+        <!-- <button type="submit"  class="btn-approve">Submit for Approve</button> -->
+        <button type="submit"  class="btn-save">Save</button>
+      </div>
+    </nb-card-footer>
+</div>
+</nb-card>

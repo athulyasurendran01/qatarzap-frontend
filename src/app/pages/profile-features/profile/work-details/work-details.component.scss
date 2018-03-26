@@ -1,0 +1,244 @@
+@import '../../../../@theme/styles/themes';
+@import '~@nebular/theme/styles/global/bootstrap/buttons';
+
+@include nb-install-component() {
+
+  nb-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .dropdown {
+      flex-basis: 30%;
+      min-width: 220px;
+    }
+  }
+  nb-card-footer {
+    width: 100%;
+    display: inline-block;
+  }
+  .btn-save{
+    background-color: #3BB3D5;
+    border-radius: 3px;
+    color: #FFFFFF;
+    padding: 10px 30px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-approve{
+    background-color: #F2F2F2;
+    border-radius: 3px;
+    color: #4E5361;
+    padding: 10px 30px;
+    display: inline-block;
+    margin-right: 15px;
+    border: none;
+    cursor: pointer;
+  }
+  .page-subhead{
+    font-size: 18px;
+    color: #152447;
+    margin-top: 10px;
+  }
+  .form-group label {
+    font-size: 13px;
+    color: #4E5361;
+    margin-bottom: 12px;
+  }
+  .show-grid{
+    margin:0;
+  }
+  .form-group .form-control {
+    border: 1px solid #E7E9ED;
+    height: 50px;
+    border-radius: 3px;
+  }
+  .form-control {
+    color: #666666;
+    border: 1px solid #cbcbcb;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: none;
+  }
+  #profile-page .cstm-pad{
+    padding: 0 40px;
+  }
+  #profile-page .work-photo-up-btn{
+    border: 1px dotted #3BB3D6;
+    display: block;
+    padding: 24% 0;
+    border-radius: 10px;
+    color: #3BB3D6;
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
+  #profile-page .work-photo-up-btn img{
+    width: 34px;
+  }
+  #profile-page .work-photo-box{
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 30px;
+  }
+  #profile-page .work-photo-box img{
+    width: 100%;
+  }
+  #profile-page .work-photo-box .captions{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+  }
+  #profile-page .work-photo-box .captions h2{
+    color: #FFFFFF;
+    font-size: 14px;
+  }
+  #profile-page .work-photo-box .captions ul{
+    list-style-type: none;
+    padding-left: 0;
+  }
+  #profile-page .work-photo-box .captions ul li{
+    float: left;
+    margin-right: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 4px 8px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  #profile-page .work-photo-box .overlay{
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #profile-page .delete-work-pic{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+  }
+  #profile-page .delete-work-pic i{
+    background-color: rgba(255, 255, 255, 0.33);
+    color: #fff;
+    border-radius: 50%;
+    padding: 7px 12px;
+    font-size: 20px;
+    display: block;
+  }
+
+  nb-card-body {
+    padding-bottom: 0;
+  }
+
+  .example-container {
+    margin-bottom: 1.5rem;
+  }
+
+  .primary-container {
+    .original {
+      background-color: nb-theme(btn-primary-bg);
+    }
+    .hover {
+      @include btn-primary-hover();
+    }
+    .active {
+      @include btn-primary-active();
+    }
+  }
+
+  .primary-container.outline .original {
+    background-color: transparent;
+    border: 2px solid nb-theme(btn-primary-bg);
+  }
+
+  .success-container {
+    .original {
+      background-color: nb-theme(btn-success-bg);
+    }
+    .hover {
+      @include btn-success-hover();
+    }
+    .active {
+      @include btn-success-active();
+    }
+  }
+
+  .success-container.outline .original {
+    background-color: transparent;
+    border: 2px solid nb-theme(btn-success-bg);
+  }
+
+  .warning-container {
+    .original {
+      background-color: nb-theme(btn-warning-bg);
+    }
+    .hover {
+      @include btn-warning-hover();
+    }
+    .active {
+      @include btn-warning-active();
+    }
+  }
+
+  .warning-container.outline .original {
+    background-color: transparent;
+    border: 2px solid nb-theme(btn-warning-bg);
+  }
+
+  .info-container {
+    .original {
+      background-color: nb-theme(btn-info-bg);
+    }
+    .hover {
+      @include btn-info-hover();
+    }
+    .active {
+      @include btn-info-active();
+    }
+  }
+
+  .info-container.outline .original {
+    background-color: transparent;
+    border: 2px solid nb-theme(btn-info-bg);
+  }
+
+  .danger-container {
+    .original {
+      background-color: nb-theme(btn-danger-bg);
+    }
+    .hover {
+      @include btn-danger-hover();
+    }
+    .active {
+      @include btn-danger-active();
+    }
+  }
+
+  .danger-container.outline .original {
+    background-color: transparent;
+    border: 2px solid nb-theme(btn-danger-bg);
+  }
+
+  .secondary-container {
+    .original {
+      border: 2px solid nb-theme(btn-secondary-border);
+    }
+    .hover {
+      @include btn-secondary-hover();
+    }
+    .active {
+      @include btn-secondary-active();
+    }
+  }
+
+  .secondary-container.outline .original {
+    background-color: transparent;
+    border: 2px solid nb-theme(btn-secondary-border);
+  }
+}

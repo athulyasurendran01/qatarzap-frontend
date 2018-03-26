@@ -1,0 +1,163 @@
+@import '../../../../@theme/styles/themes';
+@import '~@nebular/theme/styles/global/bootstrap/buttons';
+
+@include nb-install-component() {
+
+  nb-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .dropdown {
+      flex-basis: 30%;
+      min-width: 220px;
+    }
+  }
+
+  nb-card-body {
+    padding-bottom: 0;
+  }
+   nb-card-footer {
+    width: 100%;
+    display: inline-block;
+  }
+  .btn-save{
+    background-color: #3BB3D5;
+    border-radius: 3px;
+    color: #FFFFFF;
+    padding: 10px 30px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-approve{
+    background-color: #F2F2F2;
+    border-radius: 3px;
+    color: #4E5361;
+    padding: 10px 30px;
+    display: inline-block;
+    margin-right: 15px;
+    border: none;
+    cursor: pointer;
+  }
+  .page-subhead{
+    font-size: 18px;
+    color: #152447;
+    margin-top: 10px;
+  }
+  .form-group label {
+    font-size: 13px;
+    color: #4E5361;
+    margin-bottom: 12px;
+  }
+  .form-group .form-control {
+    border: 1px solid #E7E9ED;
+    height: 50px;
+    border-radius: 3px;
+  }
+  .form-control {
+    color: #666666;
+    border: 1px solid #cbcbcb;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: none;
+  }
+  .user-profile-upload-btn-wrapper{
+    position: absolute;
+    bottom: -10%;
+    left: 5%;
+    width: 20%;
+  }
+  .user-profile-upload-btn-wrapper img{
+    width: 100%;
+    height: auto !important;
+  }
+  .user-profile-upload-btn-wrapper .up-btn {
+      border: 1px dotted #ccc;
+      color: #3BB3D6;
+      background-color: #F5FDFF;
+      border-radius: 3px;
+      font-size: 12px;
+      width: 100%;
+      text-align: center;
+      padding-left: 12px;
+  }
+  .user-profile-upload-btn-wrapper .up-btn i{
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
+  .user-profile-upload-btn-wrapper .custom-file-up-input {
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+  }
+  .user-cover-upload-btn-wrapper{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+  }
+  .user-cover-upload-btn-wrapper .up-btn {
+      color: #152447;
+      background-color: #ffffff;
+      border-radius: 3px;
+      font-size: 12px;
+      width: 100%;
+      text-align: center;
+      padding: 12px 15px;
+      border:none;
+  }
+  .user-cover-upload-btn-wrapper .custom-file-up-input {
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+  }
+  .cover-img-box{
+    margin-bottom: 13%;
+    position: relative;
+    width: 100%;
+    padding-bottom: 56%;
+    background-size: cover !important
+  }
+
+  .add-btn{
+    font-weight: 500;
+    font-size: 15px;
+    color: #FFFFFF;
+    background-color: #3BB3D5;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 3px;
+    margin-top: 31px;
+  }
+  .del-video-btn {
+    border: 1px solid #3BB3D6;
+    border-radius: 3px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    background-color: rgba(59, 179, 214, 0.2);
+    color: #3BB3D6;
+    width: 100%;
+    padding: 12px 0;
+    border-top: none;
+    margin-bottom: 10%;
+  }
+  #WorkVideoForm p, .error{
+    color: red;
+  }
+  .form-control:focus{
+    background-color: #ffffff;
+  }
+  .form-control::placeholder { 
+    color: #A6ABBA !important;
+    opacity: 1;
+  }
+  
+}

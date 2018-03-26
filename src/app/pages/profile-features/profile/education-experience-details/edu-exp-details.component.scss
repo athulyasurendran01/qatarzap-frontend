@@ -1,0 +1,127 @@
+@import '../../../../@theme/styles/themes';
+@import '~@nebular/theme/styles/global/bootstrap/buttons';
+
+@include nb-install-component() {
+
+  nb-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .dropdown {
+      flex-basis: 30%;
+      min-width: 220px;
+    }
+  }
+  nb-card{
+    font-size: 13px;
+    color: #8a8a8a;
+  }
+  .btn-save{
+    background-color: #3BB3D5;
+    border-radius: 3px;
+    color: #FFFFFF;
+    padding: 10px 30px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-approve{
+    background-color: #F2F2F2;
+    border-radius: 3px;
+    color: #4E5361;
+    padding: 10px 30px;
+    display: inline-block;
+    margin-right: 15px;
+    border: none;
+    cursor: pointer;
+  }
+  .ion-ios-trash{
+    color: #209e91;
+  }
+  nb-card-body {
+    padding-bottom: 0;
+  }
+   nb-card-footer {
+    width: 100%;
+    display: inline-block;
+  }
+  .page-subhead{
+    font-size: 18px;
+    color: #152447;
+    margin-top: 10px;
+  }
+  .form-group label {
+    font-size: 13px;
+    color: #4E5361;
+    margin-bottom: 12px;
+  }
+  .form-group .form-control {
+    border: 1px solid #E7E9ED;
+    height: 50px;
+    border-radius: 3px;
+  }
+  .form-control {
+    color: #666666;
+    border: 1px solid #cbcbcb;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: none;
+  }
+  .form-control:focus{
+    background-color: #ffffff;
+  }
+  .form-control::placeholder { 
+    color: #A6ABBA !important;
+    opacity: 1;
+  }
+  #profile-page .table-heading-cstm {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4E5361;
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+  .btn-primary{
+    font-weight: 500;
+    font-size: 15px;
+    color: #FFFFFF;
+    background-color: #BBC3CC;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 3px;
+    margin-top: 31px;
+    cursor: pointer;
+  }
+  #qualificationForm p, .error{
+    color: red;
+  }
+  .table-hover thead th{
+    color: #A1A8B8;
+    font-size: 14px;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(161, 161, 161, 0.2);
+    border-top: none;
+  }
+  .table-hover tbody td{
+    color: #4E5361;
+    font-size: 14px;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(161, 161, 161, 0.2);
+  }
+  .table-hover tbody td a{
+    color: #4E5361;
+  }
+  .table-hover tbody td a i{
+    margin-right: 10px;
+  }
+  .table-hover tbody tr:hover {
+    background-color: transparent !important;
+  }
+  .allow-type{
+    color: #ACACAC !important;
+  }
+  .attached-file-name{
+    color: #ACACAC !important;
+  }
+}

@@ -1,0 +1,40 @@
+<div id="profile-page">
+  <nb-card-header>
+    <span class="page-subhead">Work Photos</span>
+  </nb-card-header>
+  <nb-card-body class="col-xs-12">
+    <div class="cstm-pad">
+        <div class="row show-grid">
+            <div class="col-md-4 text-center">
+                <div clss="">
+                    <a class="work-photo-up-btn sn-link ng-scope" (click)="showWorkModal()">
+                    <img src="assets/images/gallery.svg"><br><br>Upload Photos</a>
+                </div>
+            </div>
+            <div class="col-md-4" *ngFor =" let image of images">
+                <div class="work-photo-box">
+                    <img *ngIf="image.image" [src]="image.image">
+                    <div class="overlay"></div>
+                    <div class="captions">
+                        <h2>{{image.title}}</h2>
+                        <ul>
+                            <li *ngIf="image.type">{{image.type}}</li>
+                            <li *ngIf="image.design_style">{{image.design_style}}</li>
+                            <li *ngIf="image.tag">{{image.tag}}</li>
+                        </ul>
+                    </div>
+                    <a (click)="deleteWorkPhoto(image)" class="delete-work-pic">
+                        <i class="ion-ios-trash-outline"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+      <div class="text-right">
+        <!-- <button type="submit"  class="btn-approve">Submit for Approve</button> -->
+        <button type="submit"  class="btn-save">Save</button>
+      </div>
+    </nb-card-footer>
+</div>

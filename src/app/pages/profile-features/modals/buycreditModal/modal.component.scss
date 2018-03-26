@@ -1,0 +1,33 @@
+.modal-content{
+  background: white;
+}
+.form-group label {
+    font-size: 13px;
+    color: #4E5361;
+    margin-bottom: 12px;
+  }
+  .form-group .form-control {
+    border: 1px solid #E7E9ED;
+    height: 50px;
+    border-radius: 3px;
+  }
+  .form-control {
+    color: #666666;
+    border: 1px solid #cbcbcb;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: none;
+  }
+  .form-control:focus{
+    background-color: #ffffff;
+  }
+  .form-control::placeholder { 
+    color: #A6ABBA !important;
+    opacity: 1;
+  }
+  .modal-header{
+      padding: 20px 30px 20px !important;
+  }
+  .modal-footer{
+    padding: 10px 50px 10px !important;
+  }

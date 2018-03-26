@@ -1,0 +1,285 @@
+@import '../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+@import '~@nebular/theme/styles/global/bootstrap/buttons';
+
+@include nb-install-component() {
+  .solar-card nb-card-header {
+    border: none;
+    padding-bottom: 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    ngx-traffic {
+      display: none;
+    }
+  }
+
+  @include media-breakpoint-down(is) {
+    /deep/ nb-card.large-card {
+      height: nb-theme(card-height-medium);
+    }
+  }
+
+  nb-card-body {
+    padding-bottom: 0;
+    background: #eff3f6;
+/*    text-align: left;*/
+    color: #8B92A6;
+    font-size: 14px;
+    padding-left:0;
+    padding-right:0;
+   
+  }
+  .plr-0{
+     min-height: 250px;
+  }
+  
+  .dropdown {
+    min-width: 7rem;
+  }
+
+  .dropdown-menu {
+    width: auto;
+  }
+  .dropdown-toggle{
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    font-weight: 500;
+    color: #152447;
+    opacity: 0.5;
+    padding-top: 3px;
+    width: auto;
+  }
+  .dropdown-menu{
+    right: 0;
+    border-radius: 3px;
+    border: none;
+    padding: 0;
+    min-width: auto;
+    left: unset;
+    background-color: #fff;
+  }
+  .dropdown-menu li{
+    color: #4E5361 !important;
+    font-size: 14px;
+    padding: 0.75rem 1rem;
+  }
+  .dropdown-menu li i{
+    margin-right: 10px;
+  }
+  .dropdown-menu > li:hover, .dropdown-menu > li:focus{
+    background-color: #f5f5f5;
+  }
+  .dropdown-toggle::after{
+    display: none;
+  }
+  #dashboard-page .head1{
+    color: #152447;
+    font-size: 28px;
+    font-weight: 400;
+  }
+  #dashboard-page .head2{
+    color: #8B92A6;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 35px;
+  }
+
+  .pie-chart-item-container{
+    width: 25%;
+    position: relative;
+    padding: 0 15px;
+    float: left;
+    box-sizing: border-box;
+    margin-bottom: 24px;
+  }
+  .pie-chart-item{
+      box-shadow: none;
+      border-radius: 3px;
+      height: auto;
+      width: 100%;
+      display: inline-table;
+      background-color: #ffffff;
+      border: none;
+      position: relative;
+      padding: 20px 22px 20px;
+  }
+  #dashboard-page .pie-charts .panel{
+    box-shadow: none;
+    border-radius: 3px;
+    height: auto;
+    background: #fff;
+  }
+  #dashboard-page .pie-charts .panel .panel-body{
+    padding: 35px 22px 30px;
+  }
+  #dashboard-page .pie-charts .pie-chart-item i{
+    left: 0;
+    font-size: 44px;
+  }
+
+  #dashboard-page .pie-charts .pie-chart-item .credit-icon{
+    color: #02B6CF;
+    margin-top: 15px;
+  }
+  #dashboard-page .pie-charts .pie-chart-item .credit-icon1{
+    color: #FFBB42;
+    margin-top: 15px;
+  }
+  #dashboard-page .pie-charts .pie-chart-item .lead-icon{
+    color: #52CF74;
+    margin-top: 15px;
+  }
+  #dashboard-page .pie-charts .pie-chart-item .lead-icon1{
+    color: #FE7474;
+    margin-top: 15px;
+  }
+  #dashboard-page .pie-charts .pie-chart-item .description{
+    float: right;
+    padding: 7px 0;
+    text-align: right;
+    color: #8B92A6;
+    font-size: 14px;
+  }
+  #dashboard-page .pie-charts .description .description-stats {
+      padding-top: 0px;
+      font-size: 36px;
+      color: #152447;
+  }
+  #dashboard-page {
+    box-shadow: none;
+    border-radius: 3px;
+    height: auto;
+    background: transparent;
+    padding: 15px 0px;
+  }
+  #dashboard-page .title{
+    display: table;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  #dashboard-page .cstm-table-row{
+    background: #fff;
+    border-radius: 3px;
+    padding: 18px 0;
+    margin: 10px 0;
+    color: #8B92A6;
+    font-size: 14px;
+  }
+  #dashboard-page .cstm-table-row:hover{
+    box-shadow: 0px 10px 10px -6px rgba(57, 72, 112, 0.33);
+  }
+  #dashboard-page .cstm-table-row .view-hide-btn{
+    font-size: 12px;
+    color: #3BB3D6;
+    background-color: rgba(59, 179, 214, 0.1);
+    padding: 6px 12px;
+    border-radius: 3px;
+    border:none;
+  }
+  #dashboard-page .cstm-table-row .price-color{
+    color: #3BB3D6;
+  }
+  #dashboard-page .cstm-table-row .lead-action .dropdown{
+    text-align: right;
+  }
+  #dashboard-page .cstm-table-row .lead-action .dropdown .dropdown-toggle{
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    font-weight: 500;
+    color: #152447;
+    opacity: 0.5;
+    padding-top: 3px;
+  }
+  #dashboard-page .cstm-table-row .lead-action .dropdown .dropdown-menu{
+    right: 0;
+    border-radius: 3px;
+    border: none;
+    padding: 0;
+    min-width: auto;
+    left: unset;
+    box-shadow: 0 0px 8px 0px rgba(57,72,112,0.15);
+  }
+  #dashboard-page .cstm-table-row .lead-action .dropdown .dropdown-menu li a{
+    padding: 8px 30px;
+    color: #4E5361;
+    font-size: 14px;
+  }
+  #dashboard-page .cstm-table-row .lead-action .dropdown .dropdown-menu li a i{
+    margin-right: 10px;
+  }
+  #dashboard-page .cstm-table-row .client-name{
+    color: #152447;
+  }
+  #dashboard-page .cstm-table-row .client-name span{
+    background: #ffa200;
+    border-radius: 50%;
+    padding: 10px 9px;
+    display: inline-block;
+    color: #fff;
+    margin-right: 5px;
+    width:40px;
+    height:40px;
+    text-align:center
+  }
+  #dashboard-page .cstm-table-row-details{
+    background: #fff;
+    padding: 20px 0;
+    margin: 10px 0 0 0;
+    color: #8B92A6;
+    font-size: 14px;
+    border-top: 1px solid rgba(21, 36, 71, 0.1);
+  }
+  #dashboard-page .cstm-table-row-details .footer{
+    border-top: 1px solid rgba(21, 36, 71, 0.1);
+    text-align: right;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+  #dashboard-page .cstm-table-row-details .footer .reject-btn{
+    color: #606060;
+    font-size: 14px;
+    background-color: #F2F2F2;
+    padding: 10px 25px;
+    border-radius: 3px;
+    margin-right: 10px;
+  }
+  #dashboard-page .cstm-table-row-details .footer .purchase-btn{
+    color: #FFFFFF;
+    font-size: 14px;
+    background-color: #3BB3D5;
+    padding: 10px 25px;
+    border-radius: 3px;
+    margin-right: 15px;
+  }
+  #dashboard-page .cstm-table-row-details .propertys-head label{
+    color: #4E5361;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  #dashboard-page .cstm-table-row-details .propertys-value label{
+    color: #8B92A6;
+    margin-bottom: 20px;
+  }
+  nb-card .status{
+    color: black;
+  }
+
+  @media screen and (max-width: 700px){
+    .pie-charts .pie-chart-item-container {
+        width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 1325px) and (min-width: 700px){
+    .pie-charts .pie-chart-item-container {
+        width: 50%;
+    }
+  }
+}
+.plr-0[_ngcontent-c8] {
+    padding-bottom: 110px;
+}

@@ -1,0 +1,93 @@
+<div *ngIf="modalHeader == 'photo'; else coverpic">
+	<div class="modal-content profile-pic-modal">
+	    <div class="modal-header">
+	      <span>Change Profile Picture</span>
+	      <button class="close" aria-label="Close" (click)="closeModal()">
+	        <span aria-hidden="true">&times;</span>
+	      </button>
+	    </div>
+	    <div class="modal-body">
+	    	<div class="upload-btn-wrapper">
+	              <button class="up-btn text-center">Add Photo</button>
+	              <input class="custom-file-up-input" type="file" (change)="fileChangeEvent($event)">
+	        </div>
+	        <image-cropper
+	            [imageChangedEvent]="imageChangedEvent"
+	            [maintainAspectRatio]="true"
+	            [aspectRatio]="4 / 4"
+	            [resizeToWidth]="128"
+	            format="png"
+	            (imageCropped)="imageCropped($event)"
+	            (imageLoaded)="imageLoaded()"
+	            (loadImageFailed)="loadImageFailed()"
+	        ></image-cropper>
+	    </div>
+	    <div class="modal-footer">
+	      <button class="btn btn-md btn-primary" (click)="updateProfile()">Save changes</button>
+	    </div>
+    </div>
+</div>
+<ng-template #coverpic>
+	<div class="modal-content profile-pic-modal">
+		<div class="modal-header">
+	      <span>Change Cover Picture</span>
+	      <button class="close" aria-label="Close" (click)="closeModal()">
+	        <span aria-hidden="true">&times;</span>
+	      </button>
+	    </div>
+	    <div class="modal-body">
+		    <div class="row show-grid">
+		        <div class="col-xs-12 col-sm-4">
+		          <div class="cover-box add-new-cover">
+		            <a (click)="cropCoverImg(coverimageCrop)"><i class="ion-ios-plus-outline"></i><br>Add New</a>
+		          </div>
+		        </div>
+		        <div class="col-xs-12 col-sm-4" *ngFor="let coverpic of coverpics">
+		          <div class="cover-box">
+		            <a (click)="setDefaultCover(coverpic.id)">
+		              <img id={{coverpic.id}} [src]="coverpic.url">
+		              <div class="overlay"></div>
+		              <div class="tick-select"><i class="nc-icon-outline ui-1_check-circle-08"></i></div>
+		            </a>
+		          </div>
+		        </div>
+		    </div>
+	    </div>
+	     <div class="modal-footer">
+	      <button class="btn btn-md btn-primary" (click)="closeModal()">Close</button>
+	    </div>
+	</div>
+</ng-template>
+
+<ng-template #coverimageCrop let-c="close" let-d="dismiss"> 
+    <div class="modal-content profile-pic-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>Change Cover Picture</div>
+                <button id="closBtn" type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            	<div class="upload-btn-wrapper">
+	              <button class="up-btn text-center">Add Photo</button>
+	              <input class="custom-file-up-input" type="file" (change)="coverChangeEvent($event)">
+	        	</div>
+	        	
+		        <image-cropper
+		            [imageChangedEvent]="imageChangedEvent"
+		            [maintainAspectRatio]="true"
+		            [aspectRatio]="16 / 9"
+		            [resizeToWidth]="128"
+		            format="png"
+		            (imageCropped)="coverCropped($event)"
+		            (imageLoaded)="imageLoaded()"
+		            (loadImageFailed)="loadImageFailed()"
+		        ></image-cropper>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-md btn-primary" (click)="updateCover()">Save</button>
+            </div>
+        </div>
+    </div>
+</ng-template>  
